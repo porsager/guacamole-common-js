@@ -1,0 +1,24 @@
+{
+  "name": "guacamole-common-js",
+  "version": "0.9.9",
+  "main": "guacamole.js",
+  "scripts": {
+    "build": "node build & node uglify"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "uglify-js": "~2.6.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/porsager/guacamole-common-js.git"
+  },
+  "keywords": [
+    "guacamole",
+    "guac",
+    "dev",
+    "client",
+    "browser"
+  ],
+  "homepage": "https://github.com/porsager/guacamole-common-js"
+}
