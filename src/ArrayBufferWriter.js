@@ -20,20 +20,18 @@
  * THE SOFTWARE.
  */
 
-var Guacamole = Guacamole || {};
-
 /**
  * A writer which automatically writes to the given output stream with arbitrary
  * binary data, supplied as ArrayBuffers.
- * 
+ *
  * @constructor
- * @param {Guacamole.OutputStream} stream The stream that data will be written
+ * @param {OutputStream} stream The stream that data will be written
  *                                        to.
  */
-Guacamole.ArrayBufferWriter = function(stream) {
+export default function(stream) {
 
     /**
-     * Reference to this Guacamole.StringWriter.
+     * Reference to this StringWriter.
      * @private
      */
     var guac_writer = this;
@@ -47,7 +45,7 @@ Guacamole.ArrayBufferWriter = function(stream) {
     /**
      * Encodes the given data as base64, sending it as a blob. The data must
      * be small enough to fit into a single blob instruction.
-     * 
+     *
      * @private
      * @param {Uint8Array} bytes The data to send.
      */
@@ -66,7 +64,7 @@ Guacamole.ArrayBufferWriter = function(stream) {
 
     /**
      * Sends the given data.
-     * 
+     *
      * @param {ArrayBuffer|TypedArray} data The data to send.
      */
     this.sendData = function(data) {
@@ -96,7 +94,7 @@ Guacamole.ArrayBufferWriter = function(stream) {
     /**
      * Fired for received data, if acknowledged by the server.
      * @event
-     * @param {Guacamole.Status} status The status of the operation.
+     * @param {Status} status The status of the operation.
      */
     this.onack = null;
 

@@ -20,17 +20,15 @@
  * THE SOFTWARE.
  */
 
-var Guacamole = Guacamole || {};
-
 /**
  * An input stream abstraction used by the Guacamole client to facilitate
  * transfer of files or other binary data.
- * 
+ *
  * @constructor
- * @param {Guacamole.Client} client The client owning this stream.
+ * @param {Client} client The client owning this stream.
  * @param {Number} index The index of this stream.
  */
-Guacamole.InputStream = function(client, index) {
+export default function InputStream(client, index) {
 
     /**
      * Reference to this stream.
@@ -46,7 +44,7 @@ Guacamole.InputStream = function(client, index) {
 
     /**
      * Called when a blob of data is received.
-     * 
+     *
      * @event
      * @param {String} data The received base64 data.
      */
@@ -54,14 +52,14 @@ Guacamole.InputStream = function(client, index) {
 
     /**
      * Called when this stream is closed.
-     * 
+     *
      * @event
      */
     this.onend = null;
 
     /**
      * Acknowledges the receipt of a blob.
-     * 
+     *
      * @param {String} message A human-readable message describing the error
      *                         or status.
      * @param {Number} code The error code, if any, or 0 for success.

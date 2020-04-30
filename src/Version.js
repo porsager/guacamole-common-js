@@ -20,8 +20,6 @@
  * THE SOFTWARE.
  */
 
-var Guacamole = Guacamole || {};
-
 /**
  * The unique ID of this version of the Guacamole JavaScript API. This ID will
  * be the version string of the guacamole-common-js Maven project, and can be
@@ -30,4 +28,4 @@ var Guacamole = Guacamole || {};
  *
  * @type {String}
  */
-Guacamole.API_VERSION = "0.9.9";
+export default "0.9.9";

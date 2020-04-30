@@ -20,31 +20,31 @@
  * THE SOFTWARE.
  */
 
-var Guacamole = Guacamole || {};
+import ArrayBufferReader from './ArrayBufferReader.js'
 
 /**
  * A reader which automatically handles the given input stream, returning
  * strictly text data. Note that this object will overwrite any installed event
- * handlers on the given Guacamole.InputStream.
- * 
+ * handlers on the given InputStream.
+ *
  * @constructor
- * @param {Guacamole.InputStream} stream The stream that data will be read
+ * @param {InputStream} stream The stream that data will be read
  *                                       from.
  */
-Guacamole.StringReader = function(stream) {
+export default function(stream) {
 
     /**
-     * Reference to this Guacamole.InputStream.
+     * Reference to this InputStream.
      * @private
      */
     var guac_reader = this;
 
     /**
-     * Wrapped Guacamole.ArrayBufferReader.
+     * Wrapped ArrayBufferReader.
      * @private
-     * @type {Guacamole.ArrayBufferReader}
+     * @type {ArrayBufferReader}
      */
-    var array_reader = new Guacamole.ArrayBufferReader(stream);
+    var array_reader = new ArrayBufferReader(stream);
 
     /**
      * The number of bytes remaining for the current codepoint.
@@ -65,7 +65,7 @@ Guacamole.StringReader = function(stream) {
     /**
      * Decodes the given UTF-8 data into a Unicode string. The data may end in
      * the middle of a multibyte character.
-     * 
+     *
      * @private
      * @param {ArrayBuffer} buffer Arbitrary UTF-8 data.
      * @return {String} A decoded Unicode string.
@@ -155,7 +155,7 @@ Guacamole.StringReader = function(stream) {
 
     /**
      * Fired once for every blob of text data received.
-     * 
+     *
      * @event
      * @param {String} text The data packet received.
      */

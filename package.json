@@ -1,13 +1,13 @@
 {
   "name": "guacamole-common-js",
   "version": "0.9.9",
-  "main": "guacamole.js",
+  "main": "dist/guacamole.js",
+  "module": "src/index.js",
   "scripts": {
-    "build": "node build & node uglify"
+    "build": "rollup -c"
   },
-  "dependencies": {},
   "devDependencies": {
-    "uglify-js": "~2.6.2"
+    "rollup": "2.6.1"
   },
   "repository": {
     "type": "git",

@@ -20,8 +20,6 @@
  * THE SOFTWARE.
  */
 
-var Guacamole = Guacamole || {};
-
 /**
  * A Guacamole status. Each Guacamole status consists of a status code, defined
  * by the protocol, and an optional human-readable message, usually only
@@ -29,22 +27,22 @@ var Guacamole = Guacamole || {};
  *
  * @constructor
  * @param {Number} code
- *     The Guacamole status code, as defined by Guacamole.Status.Code.
+ *     The Guacamole status code, as defined by Status.Code.
  *
  * @param {String} [message]
  *     An optional human-readable message.
  */
-Guacamole.Status = function(code, message) {
+export default function Status(code, message) {
 
     /**
-     * Reference to this Guacamole.Status.
+     * Reference to this Status.
      * @private
      */
     var guac_status = this;
 
     /**
      * The Guacamole status code.
-     * @see Guacamole.Status.Code
+     * @see Status.Code
      * @type {Number}
      */
     this.code = code;
@@ -54,7 +52,7 @@ Guacamole.Status = function(code, message) {
      * The human-readable message is not required, and is generally provided
      * for debugging purposes only. For user feedback, it is better to translate
      * the Guacamole status code into a message.
-     * 
+     *
      * @type {String}
      */
     this.message = message;
@@ -73,7 +71,7 @@ Guacamole.Status = function(code, message) {
 /**
  * Enumeration of all Guacamole status codes.
  */
-Guacamole.Status.Code = {
+Status.Code = {
 
     /**
      * The operation succeeded.

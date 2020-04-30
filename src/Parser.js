@@ -20,15 +20,13 @@
  * THE SOFTWARE.
  */
 
-var Guacamole = Guacamole || {};
-
 /**
  * Simple Guacamole protocol parser that invokes an oninstruction event when
  * full instructions are available from data received via receive().
- * 
+ *
  * @constructor
  */
-Guacamole.Parser = function() {
+export default function() {
 
     /**
      * Reference to this parser.
@@ -40,7 +38,7 @@ Guacamole.Parser = function() {
      * Current buffer of received data. This buffer grows until a full
      * element is available. After a full element is available, that element
      * is flushed into the element buffer.
-     * 
+     *
      * @private
      */
     var buffer = "";
@@ -48,7 +46,7 @@ Guacamole.Parser = function() {
     /**
      * Buffer of all received, complete elements. After an entire instruction
      * is read, this buffer is flushed, and a new instruction begins.
-     * 
+     *
      * @private
      */
     var element_buffer = [];
@@ -61,7 +59,7 @@ Guacamole.Parser = function() {
 
     /**
      * Appends the given instruction data packet to the internal buffer of
-     * this Guacamole.Parser, executing all completed instructions at
+     * this Parser, executing all completed instructions at
      * the beginning of this buffer, if any.
      *
      * @param {String} packet The instruction data to receive.
@@ -134,7 +132,7 @@ Guacamole.Parser = function() {
                 element_end = start_index + length;
 
             }
-            
+
             // If no period yet, continue search when more data
             // is received
             else {
@@ -148,7 +146,7 @@ Guacamole.Parser = function() {
 
     /**
      * Fired once for every complete Guacamole instruction received, in order.
-     * 
+     *
      * @event
      * @param {String} opcode The Guacamole instruction opcode.
      * @param {Array} parameters The parameters provided for the instruction,
